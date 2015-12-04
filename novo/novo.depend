@@ -1,0 +1,245 @@
+# depslib dependency file v1.0
+1448985407 source:c:\users\humbertomoreira\desktop\novo\main.c
+	<stdio.h>
+	<unistd.h>
+	<math.h>
+	<windows.h>
+	<gl/glut.h>
+	"glm-0.3.2/glm/glm.h"
+	"glm-0.3.2/glm/glmint.h"
+
+1191938742 c:\users\humbertomoreira\desktop\novo\glm-0.3.2\glm\glm.h
+	<OpenGL/gl.h>
+	<OpenGL/glu.h>
+	<GL/gl.h>
+	<GL/glu.h>
+
+1114196879 c:\users\humbertomoreira\desktop\novo\glm-0.3.2\glm\glmint.h
+
+1191938742 source:c:\users\humbertomoreira\desktop\novo\glm-0.3.2\examples\gltb.c
+	<math.h>
+	<stdio.h>
+	<assert.h>
+	<windows.h>
+	<OpenGL/gl.h>
+	<GLUT/glut.h>
+	<GL/gl.h>
+	<GL/glut.h>
+	"gltb.h"
+
+1074089990 c:\users\humbertomoreira\desktop\novo\glm-0.3.2\examples\gltb.h
+
+1366620534 source:c:\users\humbertomoreira\desktop\novo\glm-0.3.2\examples\gltx.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<assert.h>
+	"gltx.h"
+
+1191938742 c:\users\humbertomoreira\desktop\novo\glm-0.3.2\examples\gltx.h
+	<windows.h>
+	<OpenGL/gl.h>
+	<GLUT/glut.h>
+	<GL/gl.h>
+	<GL/glut.h>
+
+1366623361 source:c:\users\humbertomoreira\desktop\novo\glm-0.3.2\glm\glm.c
+	"config.h"
+	<math.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<assert.h>
+	"glm.h"
+	"glmint.h"
+
+1074089990 source:c:\users\humbertomoreira\desktop\novo\glm-0.3.2\glm\glm_util.c
+	"config.h"
+	<stdlib.h>
+	<stdarg.h>
+	<string.h>
+	<stdio.h>
+	"glm.h"
+	"glmint.h"
+
+1366620294 source:c:\users\humbertomoreira\desktop\novo\glm-0.3.2\glm\glmimg.c
+	"config.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<assert.h>
+	<math.h>
+	<windows.h>
+	<OpenGL/gl.h>
+	<OpenGL/glext.h>
+	<GL/gl.h>
+	<GL/glext.h>
+	"glm.h"
+	"glmint.h"
+
+1114179091 source:c:\users\humbertomoreira\desktop\novo\glm-0.3.2\glm\glmimg_devil.c
+	"config.h"
+	"glm.h"
+	"glmint.h"
+	<IL/il.h>
+	<stdlib.h>
+
+1074096962 source:c:\users\humbertomoreira\desktop\novo\glm-0.3.2\glm\glmimg_jpg.c
+	"config.h"
+	"glm.h"
+	"glmint.h"
+	<stdio.h>
+	<setjmp.h>
+	<string.h>
+	<stdlib.h>
+	<jpeglib.h>
+
+1074096962 source:c:\users\humbertomoreira\desktop\novo\glm-0.3.2\glm\glmimg_png.c
+	"config.h"
+	"glm.h"
+	"glmint.h"
+	<stdio.h>
+	<string.h>
+	<stdlib.h>
+	<png.h>
+
+1074096962 source:c:\users\humbertomoreira\desktop\novo\glm-0.3.2\glm\glmimg_sdl.c
+	"config.h"
+	"glm.h"
+	"glmint.h"
+	<SDL/SDL_image.h>
+
+1074096962 source:c:\users\humbertomoreira\desktop\novo\glm-0.3.2\glm\glmimg_sim.c
+	"config.h"
+	"glm.h"
+	"glmint.h"
+	<simage.h>
+
+1405911410 source:c:\users\humbertomoreira\desktop\novo\bibutil.cpp
+	<windows.h>
+	<math.h>
+	<string.h>
+	<vector>
+	"bibutil.h"
+
+1405541361 c:\users\humbertomoreira\desktop\novo\bibutil.h
+	<windows.h>
+	<stdio.h>
+	<stdlib.h>
+	<GL/glut.h>
+	<jpeglib.h>
+
+1449075982 source:c:\users\humbertomoreira\desktop\novo\main.cpp
+	<stdio.h>
+	<unistd.h>
+	<math.h>
+	<windows.h>
+	<gl/freeglut.h>
+	"glm-0.3.2/glm/glm.h"
+	"glm-0.3.2/glm/glmint.h"
+	"bibutil.h"
+
+1405911410 source:c:\users\maa - pc\desktop\novo\bibutil.cpp
+	<windows.h>
+	<math.h>
+	<string.h>
+	<vector>
+	"bibutil.h"
+
+1405541362 c:\users\maa - pc\desktop\novo\bibutil.h
+	<windows.h>
+	<stdio.h>
+	<stdlib.h>
+	<GL/glut.h>
+	<jpeglib.h>
+
+1366623362 source:c:\users\maa - pc\desktop\novo\glm-0.3.2\glm\glm.c
+	"config.h"
+	<math.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<assert.h>
+	"glm.h"
+	"glmint.h"
+
+1191938742 c:\users\maa - pc\desktop\novo\glm-0.3.2\glm\glm.h
+	<OpenGL/gl.h>
+	<OpenGL/glu.h>
+	<GL/gl.h>
+	<GL/glu.h>
+
+1114196880 c:\users\maa - pc\desktop\novo\glm-0.3.2\glm\glmint.h
+
+1074089990 source:c:\users\maa - pc\desktop\novo\glm-0.3.2\glm\glm_util.c
+	"config.h"
+	<stdlib.h>
+	<stdarg.h>
+	<string.h>
+	<stdio.h>
+	"glm.h"
+	"glmint.h"
+
+1366620294 source:c:\users\maa - pc\desktop\novo\glm-0.3.2\glm\glmimg.c
+	"config.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<assert.h>
+	<math.h>
+	<windows.h>
+	<OpenGL/gl.h>
+	<OpenGL/glext.h>
+	<GL/gl.h>
+	<GL/glext.h>
+	"glm.h"
+	"glmint.h"
+
+1114179092 source:c:\users\maa - pc\desktop\novo\glm-0.3.2\glm\glmimg_devil.c
+	"config.h"
+	"glm.h"
+	"glmint.h"
+	<IL/il.h>
+	<stdlib.h>
+
+1074096962 source:c:\users\maa - pc\desktop\novo\glm-0.3.2\glm\glmimg_jpg.c
+	"config.h"
+	"glm.h"
+	"glmint.h"
+	<stdio.h>
+	<setjmp.h>
+	<string.h>
+	<stdlib.h>
+	<jpeglib.h>
+
+1074096962 source:c:\users\maa - pc\desktop\novo\glm-0.3.2\glm\glmimg_png.c
+	"config.h"
+	"glm.h"
+	"glmint.h"
+	<stdio.h>
+	<string.h>
+	<stdlib.h>
+	<png.h>
+
+1074096962 source:c:\users\maa - pc\desktop\novo\glm-0.3.2\glm\glmimg_sdl.c
+	"config.h"
+	"glm.h"
+	"glmint.h"
+	<SDL/SDL_image.h>
+
+1074096962 source:c:\users\maa - pc\desktop\novo\glm-0.3.2\glm\glmimg_sim.c
+	"config.h"
+	"glm.h"
+	"glmint.h"
+	<simage.h>
+
+1449257019 source:c:\users\maa - pc\desktop\novo\main.cpp
+	<stdio.h>
+	<unistd.h>
+	<math.h>
+	<windows.h>
+	<gl/freeglut.h>
+	"glm-0.3.2/glm/glm.h"
+	"glm-0.3.2/glm/glmint.h"
+	"bibutil.h"
+
