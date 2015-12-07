@@ -54,36 +54,28 @@ GLfloat angle, fAspect;
 // Função callback chamada para fazer o desenho
 
 void Desenha(void) {
-    //int i;
-//glLoadIdentity();
+
 
     glMatrixMode(GL_MODELVIEW);
-
-
     // Limpa a janela de visualização com a cor de fundo especificada
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
-
 
 // FAZER ISSO;
 //PARA CADA OBJETO;
 //DEPOIS DEFINIMOS A  LUZ
+
+/*-----Sofá---------*/
+
     glColor3f(0.7f, 0.5f, 0.22f);
-    //glmDraw(model2,GLM_SMOOTH|GLM_TEXTURE|GLM_ MATERIAL);
     glPushMatrix();
-    //glTranslatef(-10.0, -1.0, 0.0);//sofa
     glRotatef(90.0, 0,1, 0);
     glScalef(0.6f, 0.6f, 0.6f);
     glTranslatef(-14.0, 1, 3.4);
-
-    //glTranslatef(0.0, -2.832, 0.0);// tapete;
     DesenhaObjeto(objetoSofa);
     glPopMatrix();
 
-
-
+/*------------Chaminé---------*/
     glColor3f(0.7f, 0.5f, 0.22f);
-    //glmDraw(model2,GLM_SMOOTH|GLM_TEXTURE|GLM_ MATERIAL);
     glPushMatrix();
     glTranslatef(-2, 1, 2);
     DesenhaObjeto(objetoChamine);
@@ -93,11 +85,7 @@ void Desenha(void) {
 
 /*---------------------Piano------------------------*/
     glColor3f(0.0f, 0.0f, 0.0f);
-    //glmDraw(model2,GLM_SMOOTH|GLM_TEXTURE|GLM_ MATERIAL);
     glPushMatrix();
-    /*glRotatef(50, 0 , 1 , 0);
-    glTranslatef(-6, 1, 2);*/
-
     glRotatef(90.0, 0 , 1, 0);
     glRotatef(90.0, 0 , 1, 0);
     glRotatef(90.0, 0 , 1, 0);
@@ -108,19 +96,13 @@ void Desenha(void) {
     glPushMatrix(); // salvar as coordenadas correntes
     glPopMatrix();
 
-
 /*------------------------Lustre--------------------*/
 
     glColor3f(0.0f, 0.0f, 0.0f);
-    //glmDraw(model2,GLM_SMOOTH|GLM_TEXTURE|GLM_ MATERIAL);
     glPushMatrix();
-    /*glRotatef(50, 0 , 1 , 0);
-    glTranslatef(-6, 1, 2);*/
-
     glScalef(0.05f, 0.05f, 0.01f);
     glTranslatef(-20, -200, 120);
     glTranslatef(0, 120, 150);
-    //glTranslatef(-2, 1, 2);
     DesenhaObjeto(objetoLustre);
     glPopMatrix();
     glPushMatrix(); // salvar as coordenadas correntes
@@ -128,17 +110,11 @@ void Desenha(void) {
 
     /*------------------------Mesinha--------------------*/
 
-        glColor3f(0.82f, 0.41f, 0.12f);
-    //glColor3f(0.0f, 0.0f, 0.0f);
-    //glmDraw(model2,GLM_SMOOTH|GLM_TEXTURE|GLM_ MATERIAL);
+    glColor3f(0.82f, 0.41f, 0.12f);
     glPushMatrix();
     glRotatef(90, 1 , 90 , 0);
-    /*glTranslatef(-6, 1, 2);*/
-
     glScalef(0.02f, 0.03f, 0.03f);
     glTranslatef(-250, 0, -45);
-    //glTranslatef(-30.0, 1, -8);
-    //glTranslatef(-2, 1, 2);
     DesenhaObjeto(objetoMesinha);
     glPopMatrix();
     glPushMatrix(); // salvar as coordenadas correntes
@@ -163,22 +139,12 @@ void Inicializa(void) {
     GLfloat luzDifusaSofa[4] = {0.7, 0.7, 0.7, 1.0}; // "cor"
     GLfloat luzEspecularSofa[4] = {0.3, 0.5, 0.5, 1.0}; // "brilho"
 
-    //GLfloat luzDifusaChair[4] = {0.2, 0.6, 0.2, 1.0}; // "cor"
-   // GLfloat luzEspecularChair[4] = {0.2, 0.4, 0.2, 1.0}; // "brilho"
-
-     GLfloat luzDifusaChamine[4] = {0.2, 0.3, 0.7, 1.0}; // "cor/"
+    GLfloat luzDifusaChamine[4] = {0.2, 0.3, 0.7, 1.0}; // "cor/"
     GLfloat luzEspecularChamine[4] = {0.9, 0.2, 0.5, 1.0}; // "brilho"
-
-
 
     GLfloat luzDifusaPiano[4] = {0.2, 0.8, 0.2, 1.0}; // "cor"
     GLfloat luzEspecularPiano[4] = {0.3, 0.2, 0.5, 1.0}; // "brilho"
-/*
-        GLfloat luzDifusaSofa[4] = {0.7, 0.7, 0.7, 1.0}; // "cor"
-    GLfloat luzEspecularSofa[4] = {0.7, 0.5, 0.5, 1.0}; // "brilho"
 
-        GLfloat luzDifusaSofa[4] = {0.7, 0.7, 0.7, 1.0}; // "cor"
-    GLfloat luzEspecularSofa[4] = {0.7, 0.5, 0.5, 1.0}; // "brilho"*/
     GLfloat posicaoLuz[4] = {700.0, 700.0, 700.0, 1.0};
 
     // Capacidade de brilho do material
@@ -211,15 +177,12 @@ void Inicializa(void) {
     glEnable(GL_LIGHT0);
     //glEnable(GL_LIGHT1);
     //glEnable(GL_LIGHT2);
-
-
-
-    glLightfv(GL_LIGHT0, GL_DIFFUSE, luzDifusaSofa);
-    glLightfv(GL_LIGHT0, GL_SPECULAR, luzEspecularSofa);
-    glLightfv(GL_LIGHT0, GL_DIFFUSE, luzDifusaChamine);
-    glLightfv(GL_LIGHT0, GL_SPECULAR, luzEspecularChamine);
-    glLightfv(GL_LIGHT0, GL_DIFFUSE, luzDifusaPiano);
-    glLightfv(GL_LIGHT0, GL_SPECULAR, luzEspecularPiano);
+//    glLightfv(GL_LIGHT0, GL_DIFFUSE, luzDifusaSofa);
+  //  glLightfv(GL_LIGHT0, GL_SPECULAR, luzEspecularSofa);
+   // glLightfv(GL_LIGHT0, GL_DIFFUSE, luzDifusaChamine);
+   // glLightfv(GL_LIGHT0, GL_SPECULAR, luzEspecularChamine);
+    //glLightfv(GL_LIGHT0, GL_DIFFUSE, luzDifusaPiano);
+   // glLightfv(GL_LIGHT0, GL_SPECULAR, luzEspecularPiano);
     glLightfv(GL_LIGHT0, GL_POSITION, posicaoLuz);
 
     // Habilita a definição da cor do material a partir da cor corrente
@@ -232,10 +195,10 @@ void Inicializa(void) {
 
     angle = 60;
 
+/*-------Sofá--------*/
     // Carrega o objeto 3D
     objetoSofa = CarregaObjeto("couchPoofyPillows.obj", true);
     printf("Objeto carregado!");
-
     // E calcula o vetor normal em cada face
     if (objetoSofa->normais) {
         // Se já existirem normais no arquivo, apaga elas
@@ -244,19 +207,7 @@ void Inicializa(void) {
     }
     CalculaNormaisPorFace(objetoSofa);
 
-
-    /* objetoChair = CarregaObjeto("singleChair.obj", true);
-    printf("Objeto carregado!");
-
-    // E calcula o vetor normal em cada face
-    if (objetoChair->normais) {
-        // Se já existirem normais no arquivo, apaga elas
-        free(objetoChair->normais);
-        objetoChair->normais_por_vertice = false;
-    }
-    CalculaNormaisPorFace(objetoChair);*/
-
-
+/*-----Chaminé-----*/
 
     glMaterialfv(GL_FRONT, GL_SPECULAR, especularidadeChamine);
     // Define a concentração do brilho
@@ -265,10 +216,7 @@ void Inicializa(void) {
 
      objetoChamine = CarregaObjeto("cheminee.obj", true);
     printf("Objeto chamine carregado!");
-
-    // E calcula o vetor normal em cada face
     if (objetoChamine->normais) {
-        // Se já existirem normais no arquivo, apaga elas
         free(objetoChamine->normais);
         objetoChamine->normais_por_vertice = false;
     }
@@ -280,49 +228,34 @@ void Inicializa(void) {
     glMaterialfv(GL_FRONT, GL_SPECULAR, especularidadePiano);
     // Define a concentração do brilho
     glMateriali(GL_FRONT, GL_SHININESS, especMaterialPiano);
+
     objetoPiano = CarregaObjeto("pianoDroit.obj", true);
     printf("Objeto piano carregado!");
-
-    // E calcula o vetor normal em cada face
     if (objetoPiano->normais) {
-        // Se já existirem normais no arquivo, apaga elas
         free(objetoPiano->normais);
         objetoPiano->normais_por_vertice = false;
     }
     CalculaNormaisPorFace(objetoPiano);
 
-
-    /*Objeto lustre*/
-
-
+/*-------------Objeto lustre------------*/
     objetoLustre = CarregaObjeto("chandelier-lamp.obj", true);
     printf("Objeto lustre carregado!");
-
-    // E calcula o vetor normal em cada face
     if (objetoLustre->normais) {
-        // Se já existirem normais no arquivo, apaga elas
         free(objetoLustre->normais);
         objetoLustre->normais_por_vertice = false;
     }
     CalculaNormaisPorFace(objetoLustre);
 
-        /*Objeto mesinha*/
-
-
+/*------------Objeto mesinha---------*/
     objetoMesinha = CarregaObjeto("ext_table.obj", true);
     printf("Objeto mesinha carregado!");
-
-    // E calcula o vetor normal em cada face
     if (objetoMesinha->normais) {
-        // Se já existirem normais no arquivo, apaga elas
         free(objetoMesinha->normais);
         objetoMesinha->normais_por_vertice = false;
     }
     CalculaNormaisPorFace(objetoMesinha);
 
 }
-
-// Função usada para especificar a posição do observador virtual
 
 void PosicionaObservador(void) {
     obsX = obsY = 0;
