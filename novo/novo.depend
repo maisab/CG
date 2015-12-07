@@ -337,3 +337,13 @@
 	"glmint.h"
 	<simage.h>
 
+1449463855 source:c:\cg\novo\main.cpp
+	<stdio.h>
+	<unistd.h>
+	<math.h>
+	<windows.h>
+	<gl/freeglut.h>
+	"glm-0.3.2/glm/glm.h"
+	"glm-0.3.2/glm/glmint.h"
+	"bibutil.h"
+

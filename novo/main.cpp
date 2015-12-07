@@ -47,6 +47,7 @@ OBJ *objetoChair;
 OBJ *objetoChamine;
 OBJ *objetoPiano;
 OBJ *objetoLustre;
+OBJ *objetoMesinha;
 GLfloat angle, fAspect;
 //float angle = 0;
 
@@ -100,8 +101,8 @@ void Desenha(void) {
     glRotatef(90.0, 0 , 1, 0);
     glRotatef(90.0, 0 , 1, 0);
     glRotatef(90.0, 0 , 1, 0);
-    //glScalef(0.2f, 0.2f, 0.2f);
-    glTranslatef(3.0, 1, 8);
+    glScalef(0.8f, 1.0f, 1.0f);
+    glTranslatef(2.0, 1, 8);
     DesenhaObjeto(objetoPiano);
     glPopMatrix();
     glPushMatrix(); // salvar as coordenadas correntes
@@ -116,14 +117,29 @@ void Desenha(void) {
     /*glRotatef(50, 0 , 1 , 0);
     glTranslatef(-6, 1, 2);*/
 
-    //glRotatef(90.0, 0 , 1, 0);
-    //glRotatef(90.0, 0 , 1, 0);
-    //glRotatef(90.0, 0 , 1, 0);
-    glScalef(0.05f, 0.05f, 0.05f);
-    glTranslatef(-10, -200, -10);
+    glScalef(0.05f, 0.05f, 0.01f);
+    glTranslatef(-20, -200, 120);
     glTranslatef(0, 120, 150);
     //glTranslatef(-2, 1, 2);
     DesenhaObjeto(objetoLustre);
+    glPopMatrix();
+    glPushMatrix(); // salvar as coordenadas correntes
+    glPopMatrix();
+
+    /*------------------------Mesinha--------------------*/
+
+        glColor3f(0.82f, 0.41f, 0.12f);
+    //glColor3f(0.0f, 0.0f, 0.0f);
+    //glmDraw(model2,GLM_SMOOTH|GLM_TEXTURE|GLM_ MATERIAL);
+    glPushMatrix();
+    glRotatef(90, 1 , 90 , 0);
+    /*glTranslatef(-6, 1, 2);*/
+
+    glScalef(0.02f, 0.03f, 0.03f);
+    glTranslatef(-250, 0, -45);
+    //glTranslatef(-30.0, 1, -8);
+    //glTranslatef(-2, 1, 2);
+    DesenhaObjeto(objetoMesinha);
     glPopMatrix();
     glPushMatrix(); // salvar as coordenadas correntes
     glPopMatrix();
@@ -290,6 +306,20 @@ void Inicializa(void) {
     }
     CalculaNormaisPorFace(objetoLustre);
 
+        /*Objeto mesinha*/
+
+
+    objetoMesinha = CarregaObjeto("ext_table.obj", true);
+    printf("Objeto mesinha carregado!");
+
+    // E calcula o vetor normal em cada face
+    if (objetoMesinha->normais) {
+        // Se já existirem normais no arquivo, apaga elas
+        free(objetoMesinha->normais);
+        objetoMesinha->normais_por_vertice = false;
+    }
+    CalculaNormaisPorFace(objetoMesinha);
+
 }
 
 // Função usada para especificar a posição do observador virtual
@@ -299,7 +329,7 @@ void PosicionaObservador(void) {
     obsZ = 8;
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity(); //carrega a matriz de identidade
-    gluLookAt(0, 1.8, 10    , //posição da câmera
+    gluLookAt(0.0, 1.8, 10    , //posição da câmera
             0, 1.8, 0.0, //para onde a câmera aponta
             0.0, 1.0, 0.0); //vetor view-up//
     /*
@@ -359,7 +389,7 @@ void TeclasEspeciais (int tecla, int x, int y)
 	{
 		case GLUT_KEY_HOME:	if(angle>=10)  angle -=5;
 							break;
-		case GLUT_KEY_END:	if(angle<=150) angle =5;
+		case GLUT_KEY_END:	if(angle<=150) angle +=5;
 							break;
 	}
 	EspecificaParametrosVisualizacao();
