@@ -6,11 +6,6 @@
 			<Cursor1 position="7411" topLine="255" />
 		</Cursor>
 	</File>
-	<File name="bibutil.h" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1884" topLine="57" />
-		</Cursor>
-	</File>
 	<File name="glm-0.3.2\glm\glm.c" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="70399" topLine="2013" />
@@ -23,13 +18,12 @@
 	</File>
 	<File name="main.cpp" open="1" top="1" tabpos="1" split="0" active="1" splitpos="0" zoom_1="1" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="2943" topLine="114" />
+			<Cursor1 position="1" topLine="0" />
 		</Cursor>
-		<Folding>
-			<Collapse line="143" />
-			<Collapse line="312" />
-			<Collapse line="336" />
-			<Collapse line="425" />
-		</Folding>
+	</File>
+	<File name="bibutil.h" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1884" topLine="57" />
+		</Cursor>
 	</File>
 </CodeBlocks_layout_file>
