@@ -16,9 +16,10 @@
 #define FORCAG 100
 
 //CONST_GRAV 6,673 * exp10(-11) m^3 kg^-1 s^-2
-float alpha=50;
+//float alpha=50;
 GLfloat obsX, obsY, obsZ, obsX_ini, obsY_ini, obsZ_ini;
 int x_ini, y_ini, bot;
+float alpha=50, beta=0, delta=1;
 
 struct ponto {
     double x, y, z;
@@ -54,11 +55,42 @@ GLfloat angle, fAspect;
 // Função callback chamada para fazer o desenho
 
 void Desenha(void) {
-
-
-    glMatrixMode(GL_MODELVIEW);
     // Limpa a janela de visualização com a cor de fundo especificada
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    glMatrixMode(GL_MODELVIEW);
+
+    glmDraw(model, GLM_SMOOTH | GLM_TEXTURE | GLM_MATERIAL);
+
+
+/*Sofa*/
+    GLfloat luzDifusaSofa[4] = {0.2, 0.3, 0.7, 1.0}; // "cor/"
+    GLfloat luzEspecularSofa[4] = {0.9, 0.2, 0.5, 1.0}; // "brilho"
+
+    GLfloat especularidadeSofa[4] = {0.9, 0.1, 0.2, 0.0};
+    GLint especMaterialSofa = 20;
+
+/*Chaminé*/
+    GLfloat luzDifusaChamine[4] = {0.2, 0.3, 0.7, 1.0}; // "cor/"
+    GLfloat luzEspecularChamine[4] = {0.9, 0.2, 0.5, 1.0}; // "brilho"
+
+    GLfloat especularidadeChamine[4] = {0.9, 0.1, 0.2, 0.0};
+    GLint especMaterialChamine = 20;
+
+/*Piano*/
+    GLfloat especularidadePiano[4] = {0.9, 0.1, 0.2, 0.0};
+    GLint especMaterialPiano = 35;
+
+    GLfloat luzDifusaPiano[4] = {0.2, 0.3, 0.7, 1.0};; // "cor"
+    GLfloat luzEspecularPiano[4] = {0.3, 0.2, 0.5, 1.0}; // "brilho
+
+/*Mesinha*/
+
+    GLfloat luzDifusaMesinha[4] = {0.2, 0.3, 0.7, 1.0}; // "cor/"
+    GLfloat luzEspecularMesinha[4] = {0.9, 0.2, 0.5, 1.0}; // "brilho"
+
+    GLfloat especularidadeMesinha[4] = {0.9, 0.1, 0.2, 0.0};
+    GLint especMaterialMesinha = 20;
+
 
 // FAZER ISSO;
 //PARA CADA OBJETO;
@@ -66,7 +98,11 @@ void Desenha(void) {
 
 /*-----Sofá---------*/
 
-    glColor3f(0.7f, 0.5f, 0.22f);
+    glMaterialfv(GL_FRONT, GL_SPECULAR, especularidadeSofa);
+    // Define a concentração do brilho
+    glMateriali(GL_FRONT, GL_SHININESS, especMaterialSofa);
+
+    glColor3f(0.96f, 0.64f, 0.38f);
     glPushMatrix();
     glRotatef(90.0, 0,1, 0);
     glScalef(0.6f, 0.6f, 0.6f);
@@ -76,6 +112,11 @@ void Desenha(void) {
 
 /*------------Chaminé---------*/
     glColor3f(0.7f, 0.5f, 0.22f);
+
+    glMaterialfv(GL_FRONT, GL_SPECULAR, especularidadeChamine);
+    // Define a concentração do brilho
+    glMateriali(GL_FRONT, GL_SHININESS, especMaterialChamine);
+
     glPushMatrix();
     glTranslatef(-2, 1, 2);
     DesenhaObjeto(objetoChamine);
@@ -85,6 +126,9 @@ void Desenha(void) {
 
 /*---------------------Piano------------------------*/
     glColor3f(0.0f, 0.0f, 0.0f);
+    glMaterialfv(GL_FRONT, GL_SPECULAR, especularidadePiano);
+    // Define a concentração do brilho
+    glMateriali(GL_FRONT, GL_SHININESS, especMaterialPiano);
     glPushMatrix();
     glRotatef(90.0, 0 , 1, 0);
     glRotatef(90.0, 0 , 1, 0);
@@ -110,6 +154,10 @@ void Desenha(void) {
 
     /*------------------------Mesinha--------------------*/
 
+    glMaterialfv(GL_FRONT, GL_SPECULAR, especularidadeMesinha);
+    // Define a concentração do brilho
+    glMateriali(GL_FRONT, GL_SHININESS, especMaterialMesinha);
+
     glColor3f(0.82f, 0.41f, 0.12f);
     glPushMatrix();
     glRotatef(90, 1 , 90 , 0);
@@ -120,52 +168,49 @@ void Desenha(void) {
     glPushMatrix(); // salvar as coordenadas correntes
     glPopMatrix();
 
+    /*-------------esfera ---------------*/
+
+    glColor3f(1, 1, 0);
+    glPushMatrix(); //armazena a matriz corrente
+        glTranslatef(-3, 0, 0);
+        glRotatef(beta, 0, 1, 0);
+        glRotatef(alpha, 1, 0, 0);
+        glutWireSphere(1, 20, 20);
+    glPopMatrix(); //restaura a matriz anterior
 
     //ve como remove essa cor do sofa;
     //glTranslatef(0.0, -1.8, 0.0);
     //HERE IS WHERE I DRAW MY OBJ
 
-    glmDraw(model, GLM_SMOOTH | GLM_TEXTURE | GLM_MATERIAL);
-    glPopMatrix();
+
+    //glPopMatrix();
     glutSwapBuffers();
+    //força o desenho das primitivas
+    glFlush();
 }
-
-
 
 // Inicializa parâmetros de rendering
 
 void Inicializa(void) {
-    GLfloat luzAmbiente[4] = {0.2, 0.2, 0.2, 1.0};
-    GLfloat luzDifusaSofa[4] = {0.7, 0.7, 0.7, 1.0}; // "cor"
-    GLfloat luzEspecularSofa[4] = {0.3, 0.5, 0.5, 1.0}; // "brilho"
 
-    GLfloat luzDifusaChamine[4] = {0.2, 0.3, 0.7, 1.0}; // "cor/"
-    GLfloat luzEspecularChamine[4] = {0.9, 0.2, 0.5, 1.0}; // "brilho"
-
-    GLfloat luzDifusaPiano[4] = {0.2, 0.8, 0.2, 1.0}; // "cor"
-    GLfloat luzEspecularPiano[4] = {0.3, 0.2, 0.5, 1.0}; // "brilho"
-
-    GLfloat posicaoLuz[4] = {700.0, 700.0, 700.0, 1.0};
-
+    GLfloat luzAmbiente[4] = {0.1, 0.1, 0.2, 1.0};
+    GLfloat posicaoLuz[4] = {700.0, 1000.0, 700.0, 1.0};
     // Capacidade de brilho do material
     GLfloat especularidade[4] = {0.7, 0.5, 0.2, 0.0};
     GLint especMaterial = 70;
-    GLfloat especularidadeChamine[4] = {0.9, 0.1, 0.2, 0.0};
-    GLint especMaterialChamine = 20;
-
-    GLfloat especularidadePiano[4] = {0.9, 0.1, 0.2, 0.0};
-    GLint especMaterialPiano = 15;
-
-
     glClearColor(0.0f, 0.0f, 0.0f, 1.0f);//cor meio laranja
+
+    // Habilita o depth-buffering
+    glEnable(GL_DEPTH_TEST);
 
     // Habilita o modelo de colorização de Gouraud
     glShadeModel(GL_SMOOTH);
 
     // Define a refletância do material
-    glMaterialfv(GL_FRONT, GL_SPECULAR, especularidade);
+   // glMaterialfv(GL_FRONT, GL_SPECULAR, especularidade);
+
     // Define a concentração do brilho
-    glMateriali(GL_FRONT, GL_SHININESS, especMaterial);
+    //glMateriali(GL_FRONT, GL_SHININESS, especMaterial);
 
     // Ativa o uso da luz ambiente
     glLightModelfv(GL_LIGHT_MODEL_AMBIENT, luzAmbiente);
@@ -173,24 +218,23 @@ void Inicializa(void) {
     // Define os parâmetros da luz de número 0
     glLightfv(GL_LIGHT0, GL_AMBIENT, luzAmbiente);
     glEnable(GL_LIGHTING);
+
     // Habilita a luz de número 0
     glEnable(GL_LIGHT0);
-    //glEnable(GL_LIGHT1);
-    //glEnable(GL_LIGHT2);
-//    glLightfv(GL_LIGHT0, GL_DIFFUSE, luzDifusaSofa);
-  //  glLightfv(GL_LIGHT0, GL_SPECULAR, luzEspecularSofa);
-   // glLightfv(GL_LIGHT0, GL_DIFFUSE, luzDifusaChamine);
-   // glLightfv(GL_LIGHT0, GL_SPECULAR, luzEspecularChamine);
-    //glLightfv(GL_LIGHT0, GL_DIFFUSE, luzDifusaPiano);
-   // glLightfv(GL_LIGHT0, GL_SPECULAR, luzEspecularPiano);
+    glEnable(GL_LIGHT1);
+    glEnable(GL_LIGHT2);
     glLightfv(GL_LIGHT0, GL_POSITION, posicaoLuz);
 
     // Habilita a definição da cor do material a partir da cor corrente
     glEnable(GL_COLOR_MATERIAL);
-    //Habilita o uso de iluminação
 
-    // Habilita o depth-buffering
-    glEnable(GL_DEPTH_TEST);
+    //habilita remoção de faces ocultas
+    glEnable(GL_CULL_FACE);
+    glCullFace(GL_BACK);
+
+    glMatrixMode(GL_PROJECTION);
+    glLoadIdentity(); //carrega a matriz de identidade
+    glOrtho(-5.0, 5.0, -5.0, 5.0, -5.0, 5.0); //projeção ortogonal
 
 
     angle = 60;
@@ -208,12 +252,6 @@ void Inicializa(void) {
     CalculaNormaisPorFace(objetoSofa);
 
 /*-----Chaminé-----*/
-
-    glMaterialfv(GL_FRONT, GL_SPECULAR, especularidadeChamine);
-    // Define a concentração do brilho
-    glMateriali(GL_FRONT, GL_SHININESS, especMaterialChamine);
-
-
      objetoChamine = CarregaObjeto("cheminee.obj", true);
     printf("Objeto chamine carregado!");
     if (objetoChamine->normais) {
@@ -222,13 +260,7 @@ void Inicializa(void) {
     }
     CalculaNormaisPorFace(objetoChamine);
 
-
 /*-----Piano---*/
-
-    glMaterialfv(GL_FRONT, GL_SPECULAR, especularidadePiano);
-    // Define a concentração do brilho
-    glMateriali(GL_FRONT, GL_SHININESS, especMaterialPiano);
-
     objetoPiano = CarregaObjeto("pianoDroit.obj", true);
     printf("Objeto piano carregado!");
     if (objetoPiano->normais) {
@@ -277,10 +309,7 @@ void PosicionaObservador(void) {
 void EspecificaParametrosVisualizacao(void) {
 
     // ativa a remocao das superficies traseiras;
-    //depth_buffer(x,y) = 1.0
-
-
-
+   // depth_buffer(x,y) = 1.0
     // Especifica sistema de coordenadas de projeção
     glMatrixMode(GL_PROJECTION);
     // Inicializa sistema de coordenadas de projeção
@@ -289,17 +318,14 @@ void EspecificaParametrosVisualizacao(void) {
     // Especifica a projeção perspectiva
     gluPerspective(angle, fAspect, 0.1, 1000.0);
 
-
     PosicionaObservador();
-
 }
 
 
 
 // Função callback chamada para gerenciar eventos de teclas normais (ESC)
-void Teclas (unsigned char tecla, int x, int y)
-{
-	if(tecla==27) // ESC ?
+void Teclas (int key, int x, int y){
+/*	if(tecla==27) // ESC ?
 	{
 		// Libera memória e finaliza programa
 		LiberaObjeto(objetoSofa);
@@ -313,6 +339,28 @@ void Teclas (unsigned char tecla, int x, int y)
             glEnable(GL_LIGHTING);
 	}
 	glutPostRedisplay();
+	*/
+
+    if(key == GLUT_KEY_PAGE_UP){//faz zoom-in
+        delta = delta * 1.1f;
+    }
+    if(key == GLUT_KEY_PAGE_DOWN){//faz zoom-out
+        delta = delta * 0.809f;
+    }
+    if(key == GLUT_KEY_RIGHT){//gira sobre o eixo-y
+        beta = beta - 10;
+    }
+    if(key == GLUT_KEY_LEFT){//gira sobre o eixo-y
+        beta = beta + 10;
+    }
+    if(key == GLUT_KEY_UP){ //gira sobre o eixo-x
+        alpha = alpha - 10;
+    }
+    if(key == GLUT_KEY_DOWN){ //gira sobre o eixo-x
+         alpha = alpha + 10;
+    }
+
+    glutPostRedisplay();
 }
 
 // Função callback para tratar eventos de teclas especiais
@@ -413,11 +461,11 @@ int main(int argc, char *argv[]) {
     glutDisplayFunc(Desenha);
     glutReshapeFunc(AlteraTamanhoJanela);
     // Registra a função callback para tratamento das teclas normais
-	//glutKeyboardFunc (Teclas);
+//	glutKeyboardFunc (Teclas);
 
 	// Registra a função callback para tratamento das teclas especiais
 	glutSpecialFunc (TeclasEspeciais);
-
+    //glutSpecialFunc(Teclas);
 	// Registra a função callback para eventos de botões do mouse
 	//glutMouseFunc(GerenciaMouse);
 
