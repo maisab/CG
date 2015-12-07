@@ -243,3 +243,97 @@
 	"glm-0.3.2/glm/glmint.h"
 	"bibutil.h"
 
+1405911410 source:c:\cg\novo\bibutil.cpp
+	<windows.h>
+	<math.h>
+	<string.h>
+	<vector>
+	"bibutil.h"
+
+1405541362 c:\cg\novo\bibutil.h
+	<windows.h>
+	<stdio.h>
+	<stdlib.h>
+	<GL/glut.h>
+	<jpeglib.h>
+
+1366623362 source:c:\cg\novo\glm-0.3.2\glm\glm.c
+	"config.h"
+	<math.h>
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<assert.h>
+	"glm.h"
+	"glmint.h"
+
+1191938742 c:\cg\novo\glm-0.3.2\glm\glm.h
+	<OpenGL/gl.h>
+	<OpenGL/glu.h>
+	<GL/gl.h>
+	<GL/glu.h>
+
+1114196880 c:\cg\novo\glm-0.3.2\glm\glmint.h
+
+1074089990 source:c:\cg\novo\glm-0.3.2\glm\glm_util.c
+	"config.h"
+	<stdlib.h>
+	<stdarg.h>
+	<string.h>
+	<stdio.h>
+	"glm.h"
+	"glmint.h"
+
+1366620294 source:c:\cg\novo\glm-0.3.2\glm\glmimg.c
+	"config.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<assert.h>
+	<math.h>
+	<windows.h>
+	<OpenGL/gl.h>
+	<OpenGL/glext.h>
+	<GL/gl.h>
+	<GL/glext.h>
+	"glm.h"
+	"glmint.h"
+
+1114179092 source:c:\cg\novo\glm-0.3.2\glm\glmimg_devil.c
+	"config.h"
+	"glm.h"
+	"glmint.h"
+	<IL/il.h>
+	<stdlib.h>
+
+1074096962 source:c:\cg\novo\glm-0.3.2\glm\glmimg_jpg.c
+	"config.h"
+	"glm.h"
+	"glmint.h"
+	<stdio.h>
+	<setjmp.h>
+	<string.h>
+	<stdlib.h>
+	<jpeglib.h>
+
+1074096962 source:c:\cg\novo\glm-0.3.2\glm\glmimg_png.c
+	"config.h"
+	"glm.h"
+	"glmint.h"
+	<stdio.h>
+	<string.h>
+	<stdlib.h>
+	<png.h>
+
+1074096962 source:c:\cg\novo\glm-0.3.2\glm\glmimg_sdl.c
+	"config.h"
+	"glm.h"
+	"glmint.h"
+	<SDL/SDL_image.h>
+
+1074096962 source:c:\cg\novo\glm-0.3.2\glm\glmimg_sim.c
+	"config.h"
+	"glm.h"
+	"glmint.h"
+	<simage.h>
+
